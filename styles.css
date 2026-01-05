@@ -1,0 +1,119 @@
+:root {
+    --black: #000000;
+    --dark-gray: #0a0a0a;
+    --border: #1a1a1a;
+    --green: #2dd4bf; /* Pro Turquoise Emerald */
+    --green-dim: rgba(45, 212, 191, 0.1);
+    --text-dim: #888;
+    --font-head: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--black);
+    color: white;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
+
+/* Background Glow */
+.glow-bg {
+    position: fixed;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 100vw; height: 100vh;
+    background: radial-gradient(circle at 50% -20%, #112a27 0%, transparent 50%);
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border);
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 100;
+}
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 35px; }
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links a { color: var(--text-dim); text-transform: uppercase; font-size: 12px; letter-spacing: 2px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+.nav-links a:hover { color: var(--green); }
+.nav-cta { border: 1px solid var(--green); padding: 8px 20px; border-radius: 2px; color: var(--green) !important; }
+
+/* Hero */
+.hero { padding: 150px 0 100px; text-align: center; }
+.hero-badge { 
+    display: inline-block; 
+    border: 1px solid var(--green); 
+    color: var(--green); 
+    padding: 5px 15px; 
+    font-size: 11px; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    margin-bottom: 30px;
+    background: var(--green-dim);
+}
+.hero h1 { 
+    font-family: var(--font-head); 
+    font-size: clamp(3rem, 8vw, 6rem); 
+    line-height: 1; 
+    letter-spacing: -3px; 
+    margin-bottom: 30px;
+}
+.green-text { color: var(--green); }
+.hero p { max-width: 600px; margin: 0 auto 40px; color: var(--text-dim); font-size: 18px; }
+
+/* Buttons */
+.btn-main { 
+    background: var(--green); color: black; padding: 18px 40px; 
+    text-decoration: none; font-weight: 700; text-transform: uppercase; 
+    letter-spacing: 1px; transition: 0.3s; font-size: 14px;
+}
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 30px var(--green-dim); }
+.btn-outline { 
+    border: 1px solid #333; color: white; padding: 18px 40px; 
+    text-decoration: none; font-weight: 700; text-transform: uppercase; 
+    letter-spacing: 1px; margin-left: 20px; transition: 0.3s; font-size: 14px;
+}
+.btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+/* Portfolio */
+.section { padding: 120px 0; }
+.section-label { 
+    font-size: 12px; text-transform: uppercase; letter-spacing: 4px; 
+    color: var(--text-dim); margin-bottom: 50px; text-align: center; 
+}
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.work-card { border: 1px solid var(--border); overflow: hidden; background: var(--dark-gray); }
+.work-card img { width: 100%; display: block; transition: 0.6s; filter: grayscale(20%); }
+.work-card:hover img { transform: scale(1.03); filter: grayscale(0%); }
+
+/* Services */
+.gray-bg { background-color: #050505; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.service-box span { color: var(--green); font-weight: 800; font-size: 20px; display: block; margin-bottom: 20px; }
+.service-box h3 { font-family: var(--font-head); font-size: 24px; margin-bottom: 15px; }
+.service-box p { color: var(--text-dim); font-size: 15px; }
+
+/* Contact CTA */
+.cta-box { border: 1px solid var(--green); padding: 80px 40px; text-align: center; background: linear-gradient(to bottom, #071513, #000); }
+.cta-box h2 { font-family: var(--font-head); font-size: 40px; margin-bottom: 10px; }
+.cta-box p { color: var(--text-dim); margin-bottom: 40px; }
+
+/* Footer */
+footer { padding: 50px 0; border-top: 1px solid var(--border); }
+.footer-flex { display: flex; justify-content: space-between; color: #444; font-size: 10px; letter-spacing: 2px; }
+
+/* Mobile */
+@media (max-width: 900px) {
+    .portfolio-grid, .services-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 3.5rem; }
+    .btn-outline { margin-left: 0; margin-top: 15px; display: block; }
+}
